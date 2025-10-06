@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+    networks:
+      networks1:
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      networks1:
+    depends_on: #cria uma dependencia para o servidor do phpmyadmin funciona apenas com o db
+      - db
+
+
+networks:
+  networks1:
+    driver: bridge
