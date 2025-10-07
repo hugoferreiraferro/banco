@@ -1,8 +1,6 @@
 package com.project.banco.entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +10,8 @@ import org.hibernate.annotations.UuidGenerator;
 import java.time.LocalDate;
 import java.util.UUID;
 
+@Entity
+@Table(name = "users")
 @Data //lombok cria de forma "escondida" os getters e setters
 @NoArgsConstructor //construtor padrão sem argumentos
 @AllArgsConstructor //construtor padrão com todos os argumentos

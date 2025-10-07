@@ -6,6 +6,7 @@ COPY pom.xml /app
 
 WORKDIR /app
 #instala o projeto e o - DskipTests fala pro docker pular a fase de testes, como é minha primeira vez deixei assim
+#o DskipTests é utilizado para skipar os testes e tratar o problema com a conexa do database
 RUN mvn clean install -DskipTests
 
 FROM eclipse-temurin:21-jre-alpine
