@@ -16,6 +16,7 @@ public class TokenService {
 
     @Value("${api.security.token.secret}") //pega do properties a secret passada via string
     private String secret;
+
     public String generateTOken(UserEntity user){
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret); //algoritmo utilizado para criptgrafia

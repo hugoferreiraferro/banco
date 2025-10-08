@@ -32,13 +32,6 @@ public class UserEntity implements UserDetails {
     @NotBlank(message =  "Email não pode estar em branco")
     private String email;
 
-    @NotBlank(message =  "Cpf não pode estar em branco")
-    private String cpf;
-
-    @NotBlank(message =  "Rg não pode estar em branco")
-    private String rg;
-
-    @NotBlank(message =  "Data de nascimento não pode estar em branco")
     private LocalDate dateOfBirth;
 
     @NotBlank(message =  "Senha não pode estar em branco")
@@ -47,7 +40,16 @@ public class UserEntity implements UserDetails {
     @Enumerated(EnumType.STRING) //falo para salvar como texto no db
     private UserEnum role;
 
-    //MÉTODOS DO USERDETAILS
+    public UserEntity(String name, String email, LocalDate dateOfBirth, String password, UserEnum role) {
+        this.name = name;
+        this.email = email;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+        this.role = role;
+    } //construtor de registro de usuário
+
+
+//MÉTODOS DO USERDETAILS
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
